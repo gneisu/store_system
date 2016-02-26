@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent"
+              android:orientation="vertical">
+
+    <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                 android:layout_width="match_parent"
+                 android:layout_height="match_parent"
+                 android:background="#dddddd"
+                 android:layout_marginBottom="200dp"
+                 android:stretchColumns="*">
+
+        <TableRow android:layout_weight="1">
+
+            <Button
+                android:id="@+id/button_main_package_get"
+                style="@style/mainButton"
+                android:text="@string/button_main_package_get"/>
+
+            <Button
+                android:id="@+id/button_main_package_input"
+                style="@style/mainButton"
+                android:text="@string/button_main_package_input"/>
+
+            <Button
+                android:id="@+id/button_main_package_output"
+                style="@style/mainButton"
+                android:text="@string/button_main_package_output"/>
+
+            <Button
+                android:id="@+id/button_main_item_output"
+                style="@style/mainButton"
+                android:text="@string/button_main_item_output"/>
+        </TableRow>
+
+        <TableRow android:layout_weight="1">
+
+            <Button
+                android:id="@+id/button_main_package_signature"
+                style="@style/mainButton"
+                android:text="@string/button_main_package_signature"/>
+
+            <Button
+                android:id="@+id/button_main_user"
+                style="@style/mainButton"
+                android:text="@string/button_main_user"/>
+
+            <Button style="@style/mainButton"/>
+
+            <Button style="@style/mainButton"/>
+        </TableRow>
+
+        <TableRow android:layout_weight="1">
+
+            <Button style="@style/mainButton"/>
+
+            <Button style="@style/mainButton"/>
+
+            <Button style="@style/mainButton"/>
+
+            <Button style="@style/mainButton"/>
+        </TableRow>
+
+    </TableLayout>
+
+
+
+</LinearLayout>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+              android:background="@android:color/background_light">
+
+    <Button
+        android:id="@+id/button_main_package_get"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/button_main_package_get"
+        android:layout_margin="10dp"
+        android:background="@android:color/holo_blue_light"
+        android:padding="10dp"/>
+    <Button
+        android:id="@+id/button_main_package_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/button_main_package_input"
+        android:layout_margin="10dp"
+        android:background="@android:color/holo_blue_light"
+        android:padding="10dp"/>
+    <Button
+        android:id="@+id/button_main_package_output"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/button_main_package_output"
+        android:layout_margin="10dp"
+        android:background="@android:color/holo_blue_light"
+        android:padding="10dp"/>
+    <Button
+        android:id="@+id/button_main_item_output"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/button_main_item_output"
+        android:layout_margin="10dp"
+        android:background="@android:color/holo_blue_light"
+        android:padding="10dp"/>
+    <Button
+        android:id="@+id/button_main_package_signature"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/button_main_package_signature"
+        android:layout_margin="10dp"
+        android:background="@android:color/holo_blue_light"
+        android:padding="10dp"/>
+    <Button
+        android:id="@+id/button_main_user"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/button_main_user"
+        android:layout_margin="10dp"
+        android:background="@android:color/holo_blue_light"
+        android:padding="10dp"/>
+
+</LinearLayout>
