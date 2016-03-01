@@ -24,6 +24,7 @@ public abstract class BaseActivity extends AppCompatActivity {
             fragment = this.createFragment();
             fm.beginTransaction().add(R.id.fragmentContainer, fragment).commit();
         }
+        int a = 0;
         ActivityPool.addActivity(this);
 
     }
