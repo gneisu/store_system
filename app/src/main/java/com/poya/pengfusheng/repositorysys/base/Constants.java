@@ -5,4 +5,5 @@ package com.poya.pengfusheng.repositorysys.base;
  */
 public class Constants {
     public static boolean LOGIN_STATUS = false;
+    public static boolean LOGIN_STATUS_TEST = false;
 }
