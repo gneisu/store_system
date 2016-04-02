@@ -62,6 +62,24 @@
 
     <string name="tips_hint_barcodes">enter [Enter] to start another item </string>
 
+    <string name="menu_package_input_setting">package input setting</string>
+    <string name="menu_package_output_setting">package output setting</string>
+    <string name="menu_item_output_setting">item output setting</string>
 
+    <string name="title_remember_domain_setting">Remember settings ?</string>
+
+    <string name="error_invalid_domain_code">Invalid domain code</string>
+    <string name="error_invalid_setting">Invalid setting</string>
+    <string name="error_invalid_car_no">Invalid car no</string>
+
+    <string name="error_invalid_item_code">Invalid item code</string>
+    <string name="error_invalid_label_code">Invalid label code</string>
+
+    <string name="error_invalid_awbno">Invalid awbno</string>
+    <string name="error_invalid_awbsum">Invalid awbsum</string>
+
+    <string name="error_invalid_barcode">Invalid barcode</string>
+    <string name="error_invalid_sum">Invalid sum</string>
+    <string name="error_invalid_dest">Invalid dest</string>
 
 </resources>

@@ -8,28 +8,32 @@
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
                   android:layout_width="match_parent"
                   android:layout_height="match_parent"
-                  android:orientation="vertical">
+                  android:orientation="vertical"
+                  android:textSize="@dimen/title_text_size_02">
 
         <TextView
             style="?android:listSeparatorTextViewStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="@string/title_package_barcode"/>
+            android:text="@string/title_package_barcode"
+            android:textSize="@dimen/title_text_size_02"/>
 
         <EditText
             android:id="@+id/package_barcode"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="number"
-            android:maxLines="1"/>
+            android:maxLines="1"
+            android:textSize="@dimen/title_text_size_02"/>
 
         <TextView
             style="?android:listSeparatorTextViewStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="@string/title_item_barcode"/>
+            android:text="@string/title_item_barcode"
+            android:textSize="@dimen/title_text_size_02"/>
 
         <EditText
             android:id="@+id/item_barcode"
@@ -37,34 +41,39 @@
             android:layout_height="wrap_content"
             android:enabled="false"
             android:inputType="number"
-            android:maxLines="1"/>
+            android:maxLines="1"
+            android:textSize="@dimen/title_text_size_02"/>
 
 
         <TextView
             style="?android:listSeparatorTextViewStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/title_destination"/>
+            android:text="@string/title_destination"
+            android:textSize="@dimen/title_text_size_02"/>
 
         <EditText
             android:id="@+id/destination"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:enabled="false"
-            android:inputType="text"/>
+            android:inputType="text"
+            android:textSize="@dimen/title_text_size_02"/>
 
         <TextView
             style="?android:listSeparatorTextViewStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/title_package_sum"/>
+            android:text="@string/title_package_sum"
+            android:textSize="@dimen/title_text_size_02"/>
 
         <EditText
             android:id="@+id/package_sum"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="number"
-            android:text="1"/>
+            android:text="1"
+            android:textSize="@dimen/title_text_size_02"/>
 
     </LinearLayout>
 </FrameLayout>

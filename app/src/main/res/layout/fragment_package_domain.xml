@@ -15,40 +15,64 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="@string/title_domain_code"/>
+            android:text="@string/title_domain_code"
+            android:textSize="@dimen/title_text_size_02"/>
 
         <EditText
             android:id="@+id/domain_code"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="number"
-            android:maxLines="1"/>
+            android:maxLines="1"
+            android:textSize="@dimen/title_text_size_02"/>
 
 
         <TextView
             style="?android:listSeparatorTextViewStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/title_domain_name"/>
+            android:text="@string/title_domain_name"
+            android:textSize="@dimen/title_text_size_02"/>
 
         <EditText
             android:id="@+id/domain_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:enabled="false"
-            android:inputType="text"            />
+            android:inputType="text"
+            android:textSize="@dimen/title_text_size_02"/>
 
         <TextView
             style="?android:listSeparatorTextViewStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/title_car_no"/>
+            android:text="@string/title_car_no"
+            android:textSize="@dimen/title_text_size_02"/>
 
         <EditText
             android:id="@+id/car_no"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="number"/>
+            android:inputType="number"
+            android:textSize="@dimen/title_text_size_02"/>
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                      android:layout_width="match_parent"
+                      android:layout_height="match_parent"
+                      android:orientation="horizontal">
+
+            <CheckBox
+                android:id="@+id/remember_setting"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/title_remember_domain_setting"
+                android:textSize="@dimen/title_text_size_02"/>
+        </LinearLayout>
+
 
     </LinearLayout>
 </FrameLayout>

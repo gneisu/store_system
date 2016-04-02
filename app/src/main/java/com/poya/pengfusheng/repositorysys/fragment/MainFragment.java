@@ -11,9 +11,12 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.poya.pengfusheng.repositorysys.ItemOutputActivity;
 import com.poya.pengfusheng.repositorysys.LoginActivity;
 import com.poya.pengfusheng.repositorysys.PackageGetActivity;
 import com.poya.pengfusheng.repositorysys.DomainActivity;
+import com.poya.pengfusheng.repositorysys.PackageInputActivity;
+import com.poya.pengfusheng.repositorysys.PackageOutputActivity;
 import com.poya.pengfusheng.repositorysys.PackageSignatureActivity;
 import com.poya.pengfusheng.repositorysys.R;
 import com.poya.pengfusheng.repositorysys.UserActivity;
@@ -136,8 +139,9 @@ public class MainFragment extends Fragment {
         mButtonInput.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), DomainActivity.class);
-                intent.putExtra(DomainFragment.REQUEST_TYPE, DomainFragment.REQUEST_PACKAGE_INPUT);
+//                Intent intent = new Intent(getActivity(), DomainActivity.class);
+//                intent.putExtra(DomainFragment.REQUEST_TYPE, DomainFragment.REQUEST_PACKAGE_INPUT);
+                Intent intent = new Intent(getActivity(), PackageInputActivity.class);
                 startActivity(intent);
             }
         });
@@ -147,8 +151,9 @@ public class MainFragment extends Fragment {
         mButtonOutput.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), DomainActivity.class);
-                intent.putExtra(DomainFragment.REQUEST_TYPE, DomainFragment.REQUEST_PACKAGE_OUTPUT);
+//                Intent intent = new Intent(getActivity(), DomainActivity.class);
+//                intent.putExtra(DomainFragment.REQUEST_TYPE, DomainFragment.REQUEST_PACKAGE_OUTPUT);
+                Intent intent = new Intent(getActivity(), PackageOutputActivity.class);
                 startActivity(intent);
             }
         });
@@ -158,8 +163,9 @@ public class MainFragment extends Fragment {
         mButtonItemOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), DomainActivity.class);
-                intent.putExtra(DomainFragment.REQUEST_TYPE, DomainFragment.REQUEST_ITEM_OUTPUT);
+//                Intent intent = new Intent(getActivity(), DomainActivity.class);
+//                intent.putExtra(DomainFragment.REQUEST_TYPE, DomainFragment.REQUEST_ITEM_OUTPUT);
+                Intent intent = new Intent(getActivity(), ItemOutputActivity.class);
                 startActivity(intent);
             }
         });

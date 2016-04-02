@@ -1,6 +1,8 @@
 package com.poya.pengfusheng.repositorysys.fragment;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -16,6 +18,7 @@ import android.widget.Toast;
 import com.poya.pengfusheng.repositorysys.MainActivity;
 import com.poya.pengfusheng.repositorysys.R;
 import com.poya.pengfusheng.repositorysys.base.ActivityPool;
+import com.poya.pengfusheng.repositorysys.base.conf.DomainSettingConstants;
 import com.poya.pengfusheng.repositorysys.base.conf.FileConstants;
 import com.poya.pengfusheng.repositorysys.base.utils.FileUtil;
 import com.poya.pengfusheng.repositorysys.pojo.LoginInfo;
@@ -37,6 +40,9 @@ public class UserFragment extends Fragment {
     private TextView mTelTextView;
     private TextView mPhoneTextView;
     private TextView mLogoutTextView;
+
+    private SharedPreferences mPreferences;
+    private SharedPreferences.Editor mEditor;
 
     @Nullable
     @Override
@@ -63,6 +69,18 @@ public class UserFragment extends Fragment {
 //                Toast.makeText(getActivity(), "logout", Toast.LENGTH_SHORT).show();
                 LoginInfo.getInstance().setLoginFlag(false);
                 FileUtil.saveFile(FileConstants.PASSWD_FILE, LoginInfo.getInstance().getLoginInfoJson().toString());
+                mPreferences = getActivity().getSharedPreferences(DomainSettingConstants.FILE_NAME_PACKAGE_INPUT, Context.MODE_PRIVATE);
+                mEditor = mPreferences.edit();
+                mEditor.clear();
+                mEditor.commit();
+                mPreferences = getActivity().getSharedPreferences(DomainSettingConstants.FILE_NAME_PACKAGE_OUTPUT, Context.MODE_PRIVATE);
+                mEditor = mPreferences.edit();
+                mEditor.clear();
+                mEditor.commit();
+                mPreferences = getActivity().getSharedPreferences(DomainSettingConstants.FILE_NAME_ITEM_OUTPUT, Context.MODE_PRIVATE);
+                mEditor = mPreferences.edit();
+                mEditor.clear();
+                mEditor.commit();
                 ActivityPool.finishAll();
                 Intent intent = new Intent(getActivity(), MainActivity.class);
                 startActivity(intent);

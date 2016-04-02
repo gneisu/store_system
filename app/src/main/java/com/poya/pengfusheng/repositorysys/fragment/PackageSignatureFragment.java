@@ -84,6 +84,12 @@ public class PackageSignatureFragment extends Fragment {
         mButtonOk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String itemCode = mAwbBarcodeEditText.getText().toString();
+                String sig = mSignatureEditText.getText().toString();
+                if (LangUtil.isEmpty(itemCode) || LangUtil.isEmpty(sig)) {
+                    Toast.makeText(getActivity(), R.string.error_invalid_item_code, Toast.LENGTH_LONG).show();
+                    return;
+                }
                 new CargoSignedTask().execute();
             }
         });

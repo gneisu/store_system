@@ -1,6 +1,8 @@
 package com.poya.pengfusheng.repositorysys.fragment;
 
+import android.annotation.TargetApi;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -15,6 +17,7 @@ import android.widget.Toast;
 
 import com.poya.pengfusheng.repositorysys.R;
 import com.poya.pengfusheng.repositorysys.base.conf.DotNetWebservice;
+import com.poya.pengfusheng.repositorysys.base.utils.LangUtil;
 import com.poya.pengfusheng.repositorysys.base.utils.WebserviceClientUtil;
 import com.poya.pengfusheng.repositorysys.pojo.LoginInfo;
 
@@ -32,11 +35,15 @@ public class PackageGetFragment extends Fragment {
     private EditText mItemCode;
     private EditText mLabelCode;
 
-
+    @TargetApi(11)
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_package_get, container, false);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+            getActivity().getActionBar().setDisplayHomeAsUpEnabled(true);
+        }
 
         mItemCode = (EditText) view.findViewById(R.id.package_get_item_code);
         mLabelCode = (EditText) view.findViewById(R.id.package_get_label_code);
@@ -57,9 +64,16 @@ public class PackageGetFragment extends Fragment {
         mButtonOk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Toast.makeText(getActivity(), "ok", Toast.LENGTH_SHORT).show();
                 final String itemCode = mItemCode.getText().toString();
                 final String labelCodes = mLabelCode.getText().toString();
+                if (LangUtil.isEmpty(itemCode)) {
+                    Toast.makeText(getActivity(), R.string.error_invalid_item_code, Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if (LangUtil.isEmpty(labelCodes)) {
+                    Toast.makeText(getActivity(), R.string.error_invalid_label_code, Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 new SaveCargoTask().execute(itemCode, labelCodes);
             }
         });

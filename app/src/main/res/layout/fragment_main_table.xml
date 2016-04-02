@@ -28,13 +28,15 @@
                 style="@style/mainButton"
                 android:text="@string/button_main_package_output"/>
 
+
+        </TableRow>
+
+        <TableRow android:layout_weight="1">
             <Button
                 android:id="@+id/button_main_item_output"
                 style="@style/mainButton"
                 android:text="@string/button_main_item_output"/>
-        </TableRow>
 
-        <TableRow android:layout_weight="1">
 
             <Button
                 android:id="@+id/button_main_package_signature"
@@ -46,24 +48,18 @@
                 style="@style/mainButton"
                 android:text="@string/button_main_user"/>
 
-            <Button style="@style/mainButton"/>
-
-            <Button style="@style/mainButton"/>
         </TableRow>
 
-        <TableRow android:layout_weight="1">
-
-            <Button style="@style/mainButton"/>
-
-            <Button style="@style/mainButton"/>
-
-            <Button style="@style/mainButton"/>
-
-            <Button style="@style/mainButton"/>
-        </TableRow>
 
     </TableLayout>
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Small Text"
+        android:id="@+id/textView"
+        android:layout_gravity="right"/>
 
 
 </LinearLayout>

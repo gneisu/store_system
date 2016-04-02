@@ -20,7 +20,8 @@
             android:layout_marginBottom="10dp"
             android:layout_marginRight="10dp"
             android:layout_marginTop="10dp"
-            android:textColor="#afacac"/>
+            android:textColor="#afacac"
+            android:textSize="@dimen/title_text_size_02"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -29,7 +30,8 @@
             android:layout_marginBottom="10dp"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="10dp"
-            android:text="@string/title_self_username"/>
+            android:text="@string/title_self_username"
+            android:textSize="@dimen/title_text_size_02"/>
 
 
     </FrameLayout>
@@ -49,7 +51,8 @@
             android:layout_marginBottom="10dp"
             android:layout_marginRight="10dp"
             android:layout_marginTop="10dp"
-            android:textColor="#afacac"/>
+            android:textColor="#afacac"
+            android:textSize="@dimen/title_text_size_02"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -58,7 +61,8 @@
             android:layout_marginBottom="10dp"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="10dp"
-            android:text="@string/title_self_cname"/>
+            android:text="@string/title_self_cname"
+            android:textSize="@dimen/title_text_size_02"/>
 
 
     </FrameLayout>
@@ -79,6 +83,7 @@
             android:layout_marginRight="10dp"
             android:layout_marginTop="10dp"
             android:textColor="#afacac"
+            android:textSize="@dimen/title_text_size_02"
             />
 
         <TextView
@@ -89,6 +94,7 @@
             android:layout_marginLeft="10dp"
             android:layout_marginTop="10dp"
             android:text="@string/title_self_ename"
+            android:textSize="@dimen/title_text_size_02"
             />
 
 
@@ -110,6 +116,7 @@
             android:layout_marginRight="10dp"
             android:layout_marginTop="10dp"
             android:textColor="#afacac"
+            android:textSize="@dimen/title_text_size_02"
             />
 
         <TextView
@@ -120,6 +127,7 @@
             android:layout_marginLeft="10dp"
             android:layout_marginTop="10dp"
             android:text="@string/title_self_orgname"
+            android:textSize="@dimen/title_text_size_02"
             />
 
 
@@ -141,6 +149,7 @@
             android:layout_marginRight="10dp"
             android:layout_marginTop="10dp"
             android:textColor="#afacac"
+            android:textSize="@dimen/title_text_size_02"
             />
 
         <TextView
@@ -150,7 +159,8 @@
             android:layout_marginBottom="10dp"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="10dp"
-            android:text="@string/title_self_tel"/>
+            android:text="@string/title_self_tel"
+            android:textSize="@dimen/title_text_size_02"/>
 
 
     </FrameLayout>
@@ -170,7 +180,8 @@
             android:layout_marginBottom="10dp"
             android:layout_marginRight="10dp"
             android:layout_marginTop="10dp"
-            android:textColor="#afacac"/>
+            android:textColor="#afacac"
+            android:textSize="@dimen/title_text_size_02"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -179,7 +190,8 @@
             android:layout_marginBottom="10dp"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="10dp"
-            android:text="@string/title_self_mphone"/>
+            android:text="@string/title_self_mphone"
+            android:textSize="@dimen/title_text_size_02"/>
 
 
     </FrameLayout>
@@ -199,7 +211,9 @@
             android:layout_marginBottom="10dp"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="10dp"
-            android:text="@string/title_self_logout"/>
+            android:text="@string/title_self_logout"
+            android:textSize="@dimen/title_text_size_02"
+            android:textColor="#FF0000"/>
 
 
     </FrameLayout>

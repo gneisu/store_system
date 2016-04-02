@@ -1,5 +1,11 @@
 package com.poya.pengfusheng.repositorysys.fragment;
 
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.res.AssetFileDescriptor;
+import android.media.AudioManager;
+import android.media.MediaPlayer;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -8,21 +14,28 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.poya.pengfusheng.repositorysys.DomainActivity;
 import com.poya.pengfusheng.repositorysys.R;
+import com.poya.pengfusheng.repositorysys.base.conf.DomainSettingConstants;
 import com.poya.pengfusheng.repositorysys.base.conf.DotNetWebservice;
 import com.poya.pengfusheng.repositorysys.base.utils.LangUtil;
+import com.poya.pengfusheng.repositorysys.base.utils.SoundAlert;
 import com.poya.pengfusheng.repositorysys.base.utils.WebserviceClientUtil;
 import com.poya.pengfusheng.repositorysys.pojo.BarCodeOut;
 import com.poya.pengfusheng.repositorysys.pojo.LoginInfo;
 
 import org.ksoap2.serialization.SoapObject;
 
+import java.io.IOException;
 import java.util.List;
 
 /**
@@ -34,6 +47,8 @@ public class PackageOutputFragment extends Fragment {
     public static final String EXTRA_DOMAIN_NAME = "com.poya.pengfusheng.repositorysys.fragment.domainname";
     public static final String EXTRA_IS_CITY = "com.poya.pengfusheng.repositorysys.fragment.iscity";
     public static final String EXTRA_CAR_NO = "com.poya.pengfusheng.repositorysys.fragment.carno";
+
+    public static final int REQUEST_PACKAGE_OUTPUT = 2;
 
     private String mDomainCode;
     private String mDomainName;
@@ -48,6 +63,7 @@ public class PackageOutputFragment extends Fragment {
     private String mOper;
     private String mOpsto;
     private String mOpcity;
+    private boolean mIsRemember;
 
     private EditText mPackageBarcodeEditText;
     private EditText mItemBarcodeEditText;
@@ -56,6 +72,8 @@ public class PackageOutputFragment extends Fragment {
 
     private Button mButtonOk;
     private Button mButtonCancel;
+
+    private SharedPreferences mPreferences;
 
 
     public static PackageOutputFragment newInstance(String domainCode, String domainName, String carNo, int isCity) {
@@ -69,15 +87,76 @@ public class PackageOutputFragment extends Fragment {
         return fragment;
     }
 
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        // 注册默认音频通道
+//        getActivity().setVolumeControlStream(AudioManager.STREAM_MUSIC);
+        setHasOptionsMenu(true);
+        mPreferences = getActivity().getSharedPreferences(DomainSettingConstants.FILE_NAME_PACKAGE_OUTPUT, Context.MODE_PRIVATE);
+        mIsRemember = mPreferences.getBoolean(DomainSettingConstants.REMEMBER_SETTING, false);
+        if (mIsRemember) {
+            mDomainCode = mPreferences.getString(DomainSettingConstants.REMEMBER_SETTING_DOMAIN_CODE, "");
+            mDomainName = mPreferences.getString(DomainSettingConstants.REMEMBER_SETTING_DOMAIN_NAME, "");
+            mIsCity = mPreferences.getInt(DomainSettingConstants.REMEMBER_SETTING_IS_CITY, 0);
+            mCarNo = mPreferences.getString(DomainSettingConstants.REMEMBER_SETTING_CAR_NO, "");
+        } else {
+            startDomainSettingActivity();
+        }
+    }
+
+    private void startDomainSettingActivity() {
+        Intent intent = new Intent(getActivity(), DomainActivity.class);
+        intent.putExtra(DomainFragment.REQUEST_TYPE, DomainFragment.REQUEST_PACKAGE_OUTPUT);
+        intent.putExtra(DomainFragment.EXTRA_DOMAIN_CODE, mDomainCode);
+        intent.putExtra(DomainFragment.EXTRA_DOMAIN_NAME, mDomainName);
+        intent.putExtra(DomainFragment.EXTRA_CAR_NO, mCarNo);
+        intent.putExtra(DomainFragment.EXTRA_IS_CITY, mIsCity);
+        intent.putExtra(DomainFragment.EXTRA_IS_REMEMBER, mIsRemember);
+        startActivityForResult(intent, REQUEST_PACKAGE_OUTPUT);
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == REQUEST_PACKAGE_OUTPUT && data != null && data.getSerializableExtra(DomainFragment.EXTRA_DOMAIN_CODE) != null) {
+            mDomainCode = data.getStringExtra(DomainFragment.EXTRA_DOMAIN_CODE);
+            mDomainName = data.getStringExtra(DomainFragment.EXTRA_DOMAIN_NAME);
+            mIsCity = data.getIntExtra(DomainFragment.EXTRA_IS_CITY, 0);
+            mCarNo = data.getStringExtra(DomainFragment.EXTRA_CAR_NO);
+            mIsRemember = data.getBooleanExtra(DomainFragment.EXTRA_IS_REMEMBER, false);
+        } else {
+
+        }
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        super.onCreateOptionsMenu(menu, inflater);
+        inflater.inflate(R.menu.menu_package_output, menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.menu_package_output_setting:
+                startDomainSettingActivity();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+
+    }
+
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_package_output, container, false);
 
-        mDomainCode = (String) getArguments().getSerializable(EXTRA_DOMAIN_CODE);
-        mDomainName = (String) getArguments().getSerializable(EXTRA_DOMAIN_NAME);
-        mCarNo = (String) getArguments().getSerializable(EXTRA_CAR_NO);
-        mIsCity = (Integer) getArguments().getSerializable(EXTRA_IS_CITY);
+//        mDomainCode = (String) getArguments().getSerializable(EXTRA_DOMAIN_CODE);
+//        mDomainName = (String) getArguments().getSerializable(EXTRA_DOMAIN_NAME);
+//        mCarNo = (String) getArguments().getSerializable(EXTRA_CAR_NO);
+//        mIsCity = (Integer) getArguments().getSerializable(EXTRA_IS_CITY);
 
         mPackageBarcodeEditText = (EditText) view.findViewById(R.id.package_barcode);
         mPackageBarcodeEditText.requestFocus();
@@ -97,6 +176,9 @@ public class PackageOutputFragment extends Fragment {
                 if (s.length() >= 6) {
                     mBarcode = mPackageBarcodeEditText.getText().toString();
                     new BarCodeOutQueryTask().execute(mBarcode);
+                } else {
+                    mDestinationEditText.setText(null);
+                    mItemBarcodeEditText.setText(null);
                 }
 
             }
@@ -112,10 +194,32 @@ public class PackageOutputFragment extends Fragment {
         mButtonOk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (LangUtil.isEmpty(mDomainCode) || LangUtil.isEmpty(mCarNo)) {
+                    Toast.makeText(getActivity(), R.string.error_invalid_setting, Toast.LENGTH_SHORT).show();
+                    getActivity().openOptionsMenu();
+                    return;
+                }
                 String barcode = mPackageBarcodeEditText.getText().toString();
                 String itemCode = mItemBarcodeEditText.getText().toString();
                 String dest = mDestinationEditText.getText().toString();
                 String sum = mPackageSumEditText.getText().toString();
+
+                if (LangUtil.isEmpty(barcode) || LangUtil.isEmpty(dest) || LangUtil.isEmpty(itemCode)) {
+                    Toast.makeText(getActivity(), R.string.error_invalid_barcode, Toast.LENGTH_LONG).show();
+                    return;
+                }
+
+                if (!mDomainName.equals(dest)) {
+                    Toast.makeText(getActivity(), R.string.error_invalid_dest, Toast.LENGTH_LONG).show();
+                    SoundAlert.getInstance().soundAlert();
+                    return;
+                }
+
+                if (LangUtil.parseInteger(sum, 0) <= 0 || LangUtil.parseInteger(sum) > mOutpic) {
+                    Toast.makeText(getActivity(), R.string.error_invalid_sum, Toast.LENGTH_LONG).show();
+                    return;
+                }
+
                 new CargoOutStoBarCodeTask().execute(barcode, itemCode, dest, sum);
             }
         });
@@ -191,6 +295,9 @@ public class PackageOutputFragment extends Fragment {
             soapObject.addProperty("barcode", barcode);
             soapObject.addProperty("needchecked", true);
             SoapObject result = WebserviceClientUtil.sendDotNetWebservice(url, soapObject, soapAction);
+            if (result == null) {
+                return null;
+            }
             BarCodeOut barCodeOut = null;
             try {
                 List<BarCodeOut> barCodeOuts = WebserviceClientUtil.parseSoapResultSet((SoapObject) result.getProperty("MD_BarCodeOutQueryResult"), BarCodeOut.class);

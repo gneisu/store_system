@@ -16,20 +16,23 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="@string/title_item_code"/>
+            android:text="@string/title_item_code"
+            android:textSize="@dimen/title_text_size_02"/>
 
         <EditText
             android:id="@+id/item_code"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="number"/>
+            android:inputType="number"
+            android:textSize="@dimen/title_text_size_02"/>
 
 
         <TextView
             style="?android:listSeparatorTextViewStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/title_signature"/>
+            android:text="@string/title_signature"
+            android:textSize="@dimen/title_text_size_02"/>
 
 
         <EditText
@@ -37,32 +40,37 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:enabled="false"
-            android:inputType="text"/>
+            android:inputType="text"
+            android:textSize="@dimen/title_text_size_02"/>
 
         <TextView
             style="?android:listSeparatorTextViewStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/title_pay"/>
+            android:text="@string/title_pay"
+            android:textSize="@dimen/title_text_size_02"/>
 
         <EditText
             android:id="@+id/pay"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:enabled="false"
-            android:inputType="numberDecimal"/>
+            android:inputType="numberDecimal"
+            android:textSize="@dimen/title_text_size_02"/>
 
         <TextView
             style="?android:listSeparatorTextViewStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/title_pay_other"/>
+            android:text="@string/title_pay_other"
+            android:textSize="@dimen/title_text_size_02"/>
 
         <EditText
             android:id="@+id/pay_other"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:enabled="false"
-            android:inputType="numberDecimal"/>
+            android:inputType="numberDecimal"
+            android:textSize="@dimen/title_text_size_02"/>
     </LinearLayout>
 </FrameLayout>

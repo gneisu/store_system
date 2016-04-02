@@ -16,20 +16,24 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="@string/title_item_code"/>
+            android:singleLine="false"
+            android:text="@string/title_item_code"
+            android:textSize="@dimen/title_text_size_02"/>
 
         <EditText
             android:id="@+id/package_get_item_code"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="number"/>
+            android:inputType="number"
+            android:textSize="@dimen/title_text_size_02"/>
 
 
         <TextView
             style="?android:listSeparatorTextViewStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/title_label_code"/>
+            android:text="@string/title_label_code"
+            android:textSize="@dimen/title_text_size_02"/>
 
         <EditText
             android:id="@+id/package_get_label_code"
@@ -37,7 +41,8 @@
             android:layout_height="wrap_content"
             android:height="200dp"
             android:hint="@string/tips_hint_barcodes"
-            android:inputType="textMultiLine"/>
+            android:inputType="textMultiLine"
+            android:textSize="@dimen/title_text_size_02"/>
 
     </LinearLayout>
 </FrameLayout>

@@ -20,7 +20,7 @@
     <string name="button_main_package_signature">到站签收</string>
     <string name="button_main_user">个人信息</string>
 
-    <string name="button_next">下一步</string>
+    <string name="button_next">确定</string>
     <string name="button_prev">上一步</string>
     <string name="button_ok">提交</string>
     <string name="button_cancel">取消</string>
@@ -50,7 +50,7 @@
     <string name="title_self_tel">电话号码</string>
     <string name="title_self_mphone">手机号码</string>
 
-    <string name="title_self_logout">退出</string>
+    <string name="title_self_logout">切换帐号</string>
 
     <string name="tips_request_success">操作成功！</string>
     <string name="tips_request_failed">操作失败！</string>
@@ -60,5 +60,23 @@
 
     <string name="tips_hint_barcodes">通过[回车键]区分新的条码</string>
 
+    <string name="menu_package_input_setting">货物入库配置</string>
+    <string name="menu_package_output_setting">货物出库配置</string>
+    <string name="menu_item_output_setting">单号出库配置</string>
 
+    <string name="title_remember_domain_setting">记住配置信息？</string>
+
+    <string name="error_invalid_domain_code">请输入有效的区域编号</string>
+    <string name="error_invalid_setting">请配置参数</string>
+    <string name="error_invalid_car_no">请输入有效的车号</string>
+
+    <string name="error_invalid_item_code">请扫描或者输入有效的货单条码</string>
+    <string name="error_invalid_label_code">请扫描或者输入有效的标签条码</string>
+
+    <string name="error_invalid_awbno">请扫描或者输入有效的货物单号</string>
+    <string name="error_invalid_awbsum">请输入入库件数</string>
+
+    <string name="error_invalid_barcode">请扫描或者输入有效的货物条码</string>
+    <string name="error_invalid_sum">您输入的件数超过实际的范围</string>
+    <string name="error_invalid_dest">目的地与设置的区域不一致</string>
 </resources>

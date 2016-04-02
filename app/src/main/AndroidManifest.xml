@@ -34,7 +34,8 @@
         </activity>
         <activity
             android:name=".PackageGetActivity"
-            android:label="@string/app_name"
+            android:label="@string/button_main_package_get"
+            android:parentActivityName=".MainActivity"
             android:screenOrientation="portrait">
         </activity>
         <activity
@@ -43,13 +44,33 @@
             android:screenOrientation="portrait">
         </activity>
         <activity
+            android:name=".PackageInputActivity"
+            android:label="@string/button_main_package_input"
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".PackageOutputActivity"
+            android:label="@string/button_main_package_output"
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".ItemOutputActivity"
+            android:label="@string/button_main_item_output"
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
             android:name=".PackageSignatureActivity"
-            android:label="@string/app_name"
+            android:label="@string/button_main_package_signature"
+            android:parentActivityName=".MainActivity"
             android:screenOrientation="portrait">
         </activity>
         <activity
             android:name=".UserActivity"
-            android:label="@string/app_name"
+            android:label="@string/button_main_user"
+            android:parentActivityName=".MainActivity"
             android:screenOrientation="portrait">
         </activity>
     </application>
